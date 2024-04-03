@@ -17,9 +17,10 @@ export default function Register() {
       // setUsers((prev) => [...prev, user]);
       /////// backend /////
       user.role = "user";
-      const result = await axios.post("http://localhost:8080/signup/", user);
+      const result = await axios.post("http://localhost:8080/users/signup/", user);
       console.log(result.data);
       setUser({
+        id:result.data.user._id,
         name: result.data.user.name,
         email: result.data.user.email,
         token: result.data.token,
